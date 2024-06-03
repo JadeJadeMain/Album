@@ -106,7 +106,9 @@ body{
   position: relative;
   width: 300px;
   height: 230px;
+ 
 }
+
 .envelope-wrapper > .envelope::before {
   content: "";
   position: absolute;
@@ -219,11 +221,30 @@ nav span:nth-child(2){
 
 nav span:nth-child(1){
   color: rgb(5, 53, 61);
+  position: relative;
 }
 
 .newTheme{
   background-color: grey;
 }
+
+nav .themeafter::after{
+  content: "Change theme";
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 28px;
+  width: fit-content;
+  height: 22px;
+  padding: 0px 5px;
+  background-color: red;
+  font-size: 9px;
+  font-weight: 800;
+  border-radius: 5px;
+  font-family: verdana;
+}
+
 
 .iconThemeColor{
   color: white;

@@ -7,13 +7,20 @@
     <title>CSS Envelope + Letter (Open/Close on Click)</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="sweetAlert.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     
 </head>
 <body>
+    <div id="popup-container">
+        <h2>Hello there!</h2>
+        <p>Thanks for visiting our website!</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
         <nav>
-            <span class="material-symbols-outlined changeTheme">
+            <span class="material-symbols-outlined changeTheme themeafter">
                 dark_mode
                 </span>
             <span class="battery">Batt:</span>
@@ -61,16 +68,24 @@
          let letter = document.querySelector('.letter');
          let back = document.body;
         const envelope = document.querySelector('.envelope-wrapper');
+
         envelope.addEventListener('click', () => {
             envelope.classList.toggle('flap');
             letter.style.borderRadius = "10px";
+            envelope.classList.toggle('enveHidden');
+
+            setTimeout(()=>{
+                document.getElementById('popup-container').style.display = 'block';
+                 document.getElementById('overlay').style.display = 'block';
+                 back.style.backgroundColor= "cyan";
+            }, 3500)
             
             setTimeout(() =>{
                 letter.classList.toggle('zIndexForImg');
             }, 1000);
-             setTimeout(() => {
-                alert("slightly press the images for a better viewing");
-            }, 3000);
+            // setTimeout(() => {
+            //     alert("slightly press the images for a better viewing");
+            // }, 3000);
 
            setTimeout(() => {
             popOut.classList.toggle('Display');
@@ -81,6 +96,8 @@
            back.classList.toggle('newback');
            
         });
+
+        envelope.style.overFlow = "Hidden";
 
         document.addEventListener('DOMContentLoaded', theme);
         let changeTheme = document.querySelector('.changeTheme');
@@ -101,9 +118,13 @@
             navbar.classList.toggle('navthemeColor');
         })
 
-
+    function closePopup() {
+        document.getElementById('popup-container').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+        }
 
         
     </script>
+     <script src="sweetAlert.js"></script>
 </body>
 </html>
